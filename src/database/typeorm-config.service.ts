@@ -19,6 +19,15 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       synchronize: this.configService.get('database.synchronize', {
         infer: true,
       }),
+      dropSchema: false,
+      keepConnectionAlive: true,
+      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+      migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
+      cli: {
+        entitiesDir: 'src',
+        migrationsDir: 'src/database/migrations',
+        subscribersDir: 'subscrier',
+      },
       extra: {
         max: this.configService.get('database.maxConnections', { infer: true }),
       },
