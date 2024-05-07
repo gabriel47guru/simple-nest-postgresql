@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { BusinessesModule } from './businesses/businesses.module';
+import { JobsModule } from './jobs/jobs.module';
 import { TypeOrmConfigService } from './database/typeorm-config.service';
-import { ConfigModule } from '@nestjs/config';
 import databaseConfig from './database/config/database.config';
 import appConfig from './config/app.config';
 
@@ -23,6 +24,7 @@ const dataBaseModule = TypeOrmModule.forRootAsync({
     }),
     dataBaseModule,
     BusinessesModule,
+    JobsModule,
   ],
 })
 export class AppModule {}

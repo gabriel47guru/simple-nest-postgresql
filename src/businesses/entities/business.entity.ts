@@ -1,4 +1,11 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { JobEntity } from '../../jobs/entities/jobs.entity';
+import {
+  Column,
+  Entity,
+  Index,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('businesses')
 export class BusinessEntity {
@@ -21,4 +28,7 @@ export class BusinessEntity {
   @Index()
   @Column()
   isPublic: boolean;
+
+  @OneToMany(() => JobEntity, (job) => job.business)
+  jobs: JobEntity[];
 }
