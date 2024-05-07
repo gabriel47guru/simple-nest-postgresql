@@ -25,7 +25,7 @@ export class BusinessesRepository {
   }): Promise<Business[]> {
     const where: FindOptionsWhere<BusinessEntity> = {};
 
-    where.isPublic = filterOptions?.isPublic ?? false;
+    where.isPublic = filterOptions?.isPublic ?? true;
 
     const entities = await this.businessesRepository.find({
       skip: (paginationOptions.page - 1) * paginationOptions.limit,
