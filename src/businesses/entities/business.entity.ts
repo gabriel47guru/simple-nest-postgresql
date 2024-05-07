@@ -1,4 +1,4 @@
-import { JobEntity } from '../../jobs/entities/jobs.entity';
+import { JobEntity } from '../../jobs/entities/job.entity';
 import {
   Column,
   Entity,

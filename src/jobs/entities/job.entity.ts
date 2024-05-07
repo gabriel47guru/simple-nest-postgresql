@@ -2,9 +2,9 @@ import { BusinessEntity } from '../../businesses/entities/business.entity';
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 export enum EmploymentType {
-  FULLTIME = 'full_time',
-  PARTTIME = 'part_time',
-  SEASONAL = 'seasonal',
+  FULLTIME = 'FULL_TIME',
+  PARTTIME = 'PART_TIME',
+  SEASONAL = 'SEASONAL',
 }
 
 @Entity('jobs')
@@ -15,7 +15,10 @@ export class JobEntity {
   @ManyToOne(() => BusinessEntity, (business) => business.jobs, {
     eager: true,
   })
-  business: BusinessEntity;
+  business: BusinessEntity | null;
+
+  @Column()
+  businessId: number | null;
 
   @Column()
   name: string | null;
@@ -32,7 +35,7 @@ export class JobEntity {
     array: true,
     default: [],
   })
-  employmentTypes: EmploymentType[];
+  employmentTypes: EmploymentType[] | null;
 
   @Column()
   videoUrl: string | null;

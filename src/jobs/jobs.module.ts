@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JobsController } from './jobs.controller';
 import { JobsService } from './jobs.service';
-import { JobEntity } from './entities/jobs.entity';
+import { JobEntity } from './entities/job.entity';
 import { JobsRepositoy } from './repositories/job.repository';
 
 @Module({

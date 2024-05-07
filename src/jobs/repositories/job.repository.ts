@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindOptionsWhere, Repository } from 'typeorm';
-import { JobEntity } from '../entities/jobs.entity';
+import { JobEntity } from '../entities/job.entity';
 import { FilterJobsDto, SortJobDto } from '../dto/query-jobs.dto';
 import { IPaginationOptions } from 'src/utils/types/pagination-options';
 import { JobMapper } from '../mappers/job.maper';

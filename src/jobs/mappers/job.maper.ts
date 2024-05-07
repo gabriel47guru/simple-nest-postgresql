@@ -1,6 +1,6 @@
 import { BusinessMapper } from 'src/businesses/mappers/business.maper';
 import { Job } from '../domain/job';
-import { JobEntity } from '../entities/jobs.entity';
+import { JobEntity } from '../entities/job.entity';
 
 export class JobMapper {
   static toDomain(raw: JobEntity): Job {
