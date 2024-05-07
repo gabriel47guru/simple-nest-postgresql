@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class InitiateTables1715121140101 implements MigrationInterface {
-  name = 'InitiateTables1715121140101';
+export class InitiateTables1715121797602 implements MigrationInterface {
+  name = 'InitiateTables1715121797602';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
@@ -19,15 +19,9 @@ export class InitiateTables1715121140101 implements MigrationInterface {
     await queryRunner.query(
       `CREATE INDEX "IDX_ead37aad326717865fbb6f465d" ON "businesses" ("isPublic") `,
     );
-    await queryRunner.query(
-      `ALTER TABLE "jobs" ADD CONSTRAINT "FK_c567a20039e7f72eb7fe00409dc" FOREIGN KEY ("businessId") REFERENCES "businesses"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`,
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query(
-      `ALTER TABLE "jobs" DROP CONSTRAINT "FK_c567a20039e7f72eb7fe00409dc"`,
-    );
     await queryRunner.query(
       `DROP INDEX "public"."IDX_ead37aad326717865fbb6f465d"`,
     );

@@ -14,6 +14,7 @@ export class JobEntity {
 
   @ManyToOne(() => BusinessEntity, (business) => business.jobs, {
     eager: true,
+    createForeignKeyConstraints: false,
   })
   business: BusinessEntity | null;
 

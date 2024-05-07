@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import {
-  JobEntity,
-  EmploymentType,
-} from '../../../jobs/entities/job.entity.ts';
-import { jobs } from './jobs.ts';
+import { JobEntity, EmploymentType } from '../../../jobs/entities/job.entity';
+import { jobs } from './jobs';
 
 @Injectable()
 export class JobSeedService {

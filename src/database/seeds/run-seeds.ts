@@ -7,8 +7,8 @@ const runSeeds = async () => {
   const app = await NestFactory.create(SeedModule);
 
   //run
-  await app.get(JobSeedService).run();
   await app.get(BusinessSeedService).run();
+  await app.get(JobSeedService).run();
 
   await app.close();
 };
