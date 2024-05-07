@@ -12,7 +12,9 @@ export class JobEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => BusinessEntity, (business) => business.jobs)
+  @ManyToOne(() => BusinessEntity, (business) => business.jobs, {
+    eager: true,
+  })
   business: BusinessEntity;
 
   @Column()
@@ -27,6 +29,7 @@ export class JobEntity {
   @Column({
     type: 'enum',
     enum: EmploymentType,
+    array: true,
     default: [],
   })
   employmentTypes: EmploymentType[];
