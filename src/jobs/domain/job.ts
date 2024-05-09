@@ -1,9 +1,10 @@
 import { Business } from 'src/businesses/domain/business';
+import { EmploymentType } from '../entities/job.entity';
 
 export class Job {
   id: number | string;
 
-  business: Business;
+  business: Business | null;
 
   name: string | null;
 
@@ -11,7 +12,7 @@ export class Job {
 
   maxHourlyPay: number | null;
 
-  employmentTypes: string[];
+  employmentTypes: EmploymentType[] | null;
 
   videoUrl: string | null;
 }

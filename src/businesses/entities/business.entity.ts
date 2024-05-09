@@ -1,4 +1,3 @@
-import { JobEntity } from '../../jobs/entities/job.entity';
 import {
   Column,
   Entity,
@@ -6,9 +5,12 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { JobEntity } from '../../jobs/entities/job.entity';
+import { EntityHelper } from '../../utils/entity-helper';
+import { Business } from '../domain/business';
 
 @Entity('businesses')
-export class BusinessEntity {
+export class BusinessEntity extends EntityHelper implements Business {
   @PrimaryGeneratedColumn()
   id: number;
 

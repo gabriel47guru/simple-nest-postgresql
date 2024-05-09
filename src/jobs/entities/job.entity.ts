@@ -1,5 +1,7 @@
-import { BusinessEntity } from '../../businesses/entities/business.entity';
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { BusinessEntity } from '../../businesses/entities/business.entity';
+import { Job } from '../domain/job';
+import { EntityHelper } from '../../utils/entity-helper';
 
 export enum EmploymentType {
   FULLTIME = 'FULL_TIME',
@@ -8,7 +10,7 @@ export enum EmploymentType {
 }
 
 @Entity('jobs')
-export class JobEntity {
+export class JobEntity extends EntityHelper implements Job {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -34,7 +36,6 @@ export class JobEntity {
     type: 'enum',
     enum: EmploymentType,
     array: true,
-    default: [],
   })
   employmentTypes: EmploymentType[] | null;
 

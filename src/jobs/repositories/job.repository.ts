@@ -6,6 +6,8 @@ import { FilterJobsDto, SortJobDto } from '../dto/query-jobs.dto';
 import { IPaginationOptions } from 'src/utils/types/pagination-options';
 import { JobMapper } from '../mappers/job.maper';
 import { Job } from '../domain/job';
+import { EntityCondition } from '../../utils/types/entity-condition.type';
+import { NullableType } from '../../utils/types/nullable.type';
 
 @Injectable()
 export class JobsRepositoy {
@@ -38,5 +40,13 @@ export class JobsRepositoy {
     });
 
     return entities.map((business) => JobMapper.toDomain(business));
+  }
+
+  async findOne(fields: EntityCondition<Job>): Promise<NullableType<Job>> {
+    const entity = await this.jobsRepository.findOne({
+      where: fields as unknown as FindOptionsWhere<JobEntity>,
+    });
+
+    return entity ? JobMapper.toDomain(entity) : null;
   }
 }
